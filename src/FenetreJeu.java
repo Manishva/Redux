@@ -2,11 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FenetreJeu extends JPanel {
-    private Labyrinthe labyrinthe;
-    private Bille bille;
-    private int tailleCase = 30;
-    private int hauteur, largeur;
+    private final Labyrinthe labyrinthe;
+    private final Bille bille;
+    private final int tailleCase = 30;
+    private final int hauteur, largeur;
     private JFrame frame;
+    private Events events;
 
     public FenetreJeu(Labyrinthe l, Bille bille) {
 
@@ -18,12 +19,19 @@ public class FenetreJeu extends JPanel {
         setBackground(Color.GRAY);
         setPreferredSize(new Dimension(largeur * tailleCase, hauteur * tailleCase));
 
+        this.events = new Events(bille, tailleCase);
+
         JFrame frame = new JFrame("Redux");
         this.frame = frame;
+        frame.addMouseMotionListener(events);
+        frame.addMouseListener(events);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(this);
         frame.pack();
         frame.setVisible(true);
+
+
 
     }
 
@@ -73,6 +81,8 @@ public class FenetreJeu extends JPanel {
 
         // Dessin
         g.fillOval(xPixel, yPixel, diametrePixel, diametrePixel);
+        this.bille.updateX(bille.getVx());
+        this.bille.updateY(bille.getVy());
 
     }
 

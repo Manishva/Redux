@@ -6,6 +6,7 @@ public class Lanceur {
         Jeu jeu = new Jeu("lab.txt");
         FenetreJeu graphic = new FenetreJeu(jeu.labyrinthe, jeu.getBille());
         Timer timer = new Timer(tempo, e -> {
+
             graphic.repaint();
         });
         timer.setInitialDelay(0);
