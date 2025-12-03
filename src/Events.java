@@ -8,6 +8,7 @@ public class Events implements MouseMotionListener, MouseListener {
     public Bille bille;
     protected  int sx, sy;
     private double tailleCase;
+    private MouseEvent mouseEvent;
 
     public Events(Bille bille, double tailleCase) {
         this.enjeu = false;
@@ -16,6 +17,13 @@ public class Events implements MouseMotionListener, MouseListener {
         this.sy = 0;
         this.sx = 0;
         this.tailleCase = tailleCase;
+    }
+    public void MouseNothing() {
+        if (this.mouseEvent != null) {
+            this.mouseMoved(this.mouseEvent);
+            this.bille.frottement();
+        }
+
     }
 
     @Override
@@ -29,14 +37,19 @@ public class Events implements MouseMotionListener, MouseListener {
         if (enjeu) {
             this.sx = e.getX();
             this.sy = e.getY();
-            int xPixel = (int) ((bille.getX() - bille.getRayon()) * tailleCase);
-            int yPixel = (int) ((bille.getY() - bille.getRayon()) * tailleCase);
+
+            int xPixel = (int) ((bille.getX() * this.tailleCase));
+            int yPixel = (int) ((bille.getY() * this.tailleCase));
             this.bille.calculateVx(sx - xPixel);
             this.bille.calculateVy(sy - yPixel);
-            System.out.println("X"+bille.getX() + " Y" + bille.getY());
-            System.out.println("sX"+sx + " sY"+sy);
-            System.out.println("vx" + bille.getX());
-            System.out.println("vy" + bille.getY());
+            this.mouseEvent = e;
+
+
+
+
+
+
+
 
 
         }

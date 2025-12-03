@@ -16,7 +16,7 @@ public class Bille {
     public Bille(double x, double y, double f) {
         this.x = x;
         this.y = y;
-        this.f = 0.00002;
+        this.f = 0.00007;
 
     }
 
@@ -38,7 +38,20 @@ public class Bille {
     public double getRayon() {
         return this.r;
     }
+    public void switchVX() {
+        this.vx = -1*this.vx;
+        System.out.println("vx: " + this.vx);
+    }
+    public void switchVY() {
 
+        this.vy = -1*this.vy;
+        System.out.println("vy: " + this.vy);
+    }
+
+    public void frottement(){
+        this.vx = this.vx * (1-(this.f/this.getV()));
+        this.vy = this.vy * (1-(this.f/this.getV()));
+    }
     public double getVx() {
         return this.vx;
     }

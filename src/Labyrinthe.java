@@ -6,6 +6,7 @@ public class Labyrinthe {
 
     private int hauteur, largeur;
     private Square[][] carte;
+    private int numberOfSquares;
 
     public Labyrinthe(String file) {
         try {
@@ -29,6 +30,7 @@ public class Labyrinthe {
                         default: cc = new CaseOrdinaire(l,c); break;
                     }
                     carte[l][c] = cc;
+                    numberOfSquares++;
                 }
             }
             sc.close();

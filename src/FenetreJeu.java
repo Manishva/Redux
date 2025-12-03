@@ -8,6 +8,7 @@ public class FenetreJeu extends JPanel {
     private final int hauteur, largeur;
     private JFrame frame;
     private Events events;
+    public static boolean tempb;
 
     public FenetreJeu(Labyrinthe l, Bille bille) {
 
@@ -81,6 +82,32 @@ public class FenetreJeu extends JPanel {
 
         // Dessin
         g.fillOval(xPixel, yPixel, diametrePixel, diametrePixel);
+        if (events.enjeu) {
+            this.events.MouseNothing();
+        }
+
+        for (int l = 0; l < hauteur; l++) {
+            for (int c = 0; c < largeur; c++) {
+
+                Square s = this.labyrinthe.getCase(l , c);
+
+
+                if (s instanceof Mur) {
+                    Mur mur = (Mur) s;
+                    System.out.println("l"+l);
+                    System.out.println("c"+c);
+
+                    if (mur.estLibre(bille, tailleCase) && !tempb) {
+
+                        mur.Contact(bille, tailleCase);
+                        tempb = true;
+
+                    }
+
+                }
+            }
+        }
+
         this.bille.updateX(bille.getVx());
         this.bille.updateY(bille.getVy());
 

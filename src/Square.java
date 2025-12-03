@@ -7,6 +7,13 @@ public abstract class Square {
         this.col = col;
     }
 
-    public abstract boolean estLibre();
+    public int getCol() {
+        return col;
+    }
+    public int getLig() {
+        return lig;
+    }
+    public abstract boolean estLibre(Bille bille, int tailleCase);
     public abstract String toString();
+    public abstract boolean Contact( Bille bille, int tailleCase);
 }
