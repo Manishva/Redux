@@ -5,7 +5,7 @@ public class CaseOrdinaire extends Square {
     }
 
     @Override
-    public boolean estLibre(Bille bille,int tailleCase) {
+    public boolean Contact(Bille bille, int tailleCase) {
         return false;
     }
 
@@ -15,7 +15,7 @@ public class CaseOrdinaire extends Square {
     }
 
     @Override
-    public boolean Contact(Bille bille,int taillegrille) {
+    public boolean switchV(Bille bille, int taillegrille) {
         return false;
     }
 }

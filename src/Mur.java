@@ -4,22 +4,40 @@ public class Mur extends Square {
         super(lig, col);
     }
 
+
+    // Savoir quand il y a Contact avc la bille
     @Override
-    public boolean estLibre(Bille bille, int tailleCase) {
-        if ((bille.getX()-2*bille.getRayon())*tailleCase-super.getLig() < 0  ){
+    public boolean Contact(Bille bille, int tailleCase) {
+//        int tauxcorrection = (tailleCase/100);
+
+        // rayon en pixel : 5
+        //taille case en pixel : 10
+//        System.out.println(bille.getRayon());
+//        System.out.println("getLig : " + (super.getCol() * tailleCase + tailleCase));
+//        System.out.println("YBALL : " + (bille.getY()) * tailleCase);
+//        System.out.println("dif 1 :" + ((super.getCol() * tailleCase ) - (int) ((bille.getX() +2 * bille.getRayon()) * tailleCase )));
+//        System.out.println("dif 2 :" + ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase )));
+//        System.out.println("dif 3 :!" + ((super.getLig() * tailleCase ) - (int) ((bille.getY() + bille.getRayon() ) * tailleCase)));
+//        System.out.println("dif 4 :!"+ ((super.getLig() * tailleCase + tailleCase) - (int) ((bille.getY()+ bille.getRayon() ) * tailleCase)));
+
+      //  System.out.println(bille.getVx());
+        if (((super.getCol() * tailleCase ) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)  <= 0)
+                && ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)>= 0)
+                && ((super.getLig() * tailleCase ) - (int) ((bille.getY() + bille.getRayon()) * tailleCase) <= 0)
+                && ((super.getLig() * tailleCase + tailleCase) - (int) ((bille.getY() ) * tailleCase) >= 0)) {
+            System.out.println("PASSSSSSSSSSSS");
+
 
             return true;
-        } else if ((bille.getY()-1*bille.getRayon())*tailleCase-super.getCol() < 0  ) {
+//       } else if ( ((super.getCol() * tailleCase) - (int) (bille.getX() + 1 * bille.getRayon()) * tailleCase + tailleCase <= 0)
+//                && ((super.getCol() * tailleCase + tailleCase) - (int) (bille.getX() + 1 * bille.getRayon()) * tailleCase + tailleCase >= 0)
+//                && (((super.getLig() * tailleCase ) - (int) (bille.getY() ) * tailleCase) > 0)
+//                && ((super.getLig() * tailleCase - tailleCase) - (int) ((bille.getY() ) * tailleCase) <= 0)) {
+//                System.out.println("PASSSSSSSSSSSS");) {
+//                return true;
 
-            return true;
-        } else if (false) {
-            FenetreJeu.tempb = false;
-            return false;
-        } else if (false) {
-            FenetreJeu.tempb = false;
-            return false;
-        }else {
-            FenetreJeu.tempb = false;
+        } else {
+            FenetreJeu.tempb=false;
 
             return false;
         }
@@ -29,30 +47,22 @@ public class Mur extends Square {
     public String toString() {
         return "###";
     }
-
+    // switcher la vitesse quand il y a contact
     @Override
-    public boolean Contact(Bille bille, int tailleCase) {
-        
-        if ((bille.getX()-2*bille.getRayon())*tailleCase-super.getLig() < 0  ){
-            System.out.println(super.getLig()*tailleCase);
-            System.out.println((bille.getX()-bille.getRayon())*tailleCase);
-
-            System.out.println("0 : "+ ((bille.getX()-bille.getRayon())*tailleCase-super.getLig()*tailleCase));
-            System.out.println("BIP1");
+    public boolean switchV(Bille bille, int tailleCase) {
+        if (((super.getCol() * tailleCase ) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)  <= 0)
+                && ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)>= 0)
+        ) {
+            System.out.println("SWICTH");
             bille.switchVX();
+
             return true;
-        } else if ((bille.getY()-2*bille.getRayon())*tailleCase-super.getCol() < 0  ) {
-            System.out.println("BIPPPPPPPPPPPPPPPP2");
-            bille.switchVY();
-            return true;
+//        } else if (((super.getCol() * tailleCase + tailleCase - (int) (bille.getY()+ bille.getRayon())*tailleCase) <= 0)
+//                && ((super.getCol() * tailleCase ) - (int) (bille.getY()+ bille.getRayon()) * tailleCase >= 0)) {
+//            bille.switchVY();
+//            return true;
 
 
-        } else if ((bille.getX()+bille.getRayon())*tailleCase+super.getLig() < 0) {
-            System.out.println("BIXXXXXXXXXXXX3");
-            bille.switchVX();
-            return true;
-        } else if (false) {
-            return false;
         }else {
             return false;
         }
@@ -60,4 +70,5 @@ public class Mur extends Square {
 
 
     }
+
 }

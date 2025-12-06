@@ -33,6 +33,7 @@ public class Labyrinthe {
                     numberOfSquares++;
                 }
             }
+
             sc.close();
         }
         catch (IOException e) {e.printStackTrace();}

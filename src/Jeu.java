@@ -12,7 +12,7 @@ public class Jeu {
 
     public Jeu(String f) {
         this.labyrinthe = new Labyrinthe(f);
-        this.bille = new Bille(2.0, 2.0,tailleCase);
+        this.bille = new Bille(28.5, 18.5);
         this.events = new Events(bille, tailleCase);
     }
 

@@ -4,7 +4,7 @@ public class Sortie extends Square {
         super(lig, col);
     }
 
-    public boolean estLibre(Bille bille, int tailleCase) {
+    public boolean Contact(Bille bille, int tailleCase) {
         return true;
     }
 
@@ -13,7 +13,7 @@ public class Sortie extends Square {
     }
 
     @Override
-    public boolean Contact(Bille bille, int tailleCase) {
+    public boolean switchV(Bille bille, int tailleCase) {
         return false;
     }
 }

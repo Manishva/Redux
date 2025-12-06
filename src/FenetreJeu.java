@@ -4,11 +4,12 @@ import java.awt.*;
 public class FenetreJeu extends JPanel {
     private final Labyrinthe labyrinthe;
     private final Bille bille;
-    private final int tailleCase = 30;
+    private static final int tailleCase = 50;
     private final int hauteur, largeur;
     private JFrame frame;
     private Events events;
     public static boolean tempb;
+    private static final double tailleBille = 0.6;
 
     public FenetreJeu(Labyrinthe l, Bille bille) {
 
@@ -58,9 +59,14 @@ public class FenetreJeu extends JPanel {
                 else {
                     g.setColor(Color.GRAY);
                 }
-
                 // 2. Dessin du fon(x = colonne * taille, y = ligne * taille)
-                g.fillRect(c * tailleCase, l * tailleCase, tailleCase, tailleCase);
+                if (c==0 && l ==0){
+                    g.fillRect(c * tailleCase, l * tailleCase, tailleCase, tailleCase);
+                }else{
+                    g.fillRect(c * tailleCase, l * tailleCase, tailleCase, tailleCase);
+                }
+
+
             }
         }
         // Couche 2 : La bille
@@ -74,18 +80,25 @@ public class FenetreJeu extends JPanel {
         // Conversion des coordonnées en pixels
         // On recule de r pour que x,y soit bien au milieu
 
-        int xPixel = (int) ((x - r) * tailleCase);
-        int yPixel = (int) ((y - r) * tailleCase);
+        int xPixel = (int) ((x ) * tailleCase);
+        int yPixel = (int) ((y ) * tailleCase);
 
         // Calcul de la taille en pixels (diamètre)
         int diametrePixel = (int) (2 * r * tailleCase);
 
         // Dessin
         g.fillOval(xPixel, yPixel, diametrePixel, diametrePixel);
+
+        // Faire bouger la bille quand la souris est en jeu (Pause)
         if (events.enjeu) {
             this.events.MouseNothing();
+            this.bille.updateX(bille.getVx());
+            this.bille.updateY(bille.getVy());
         }
 
+
+        // Partie collision
+        // parcourir tout les blocks pour savoir où la collision a eu lieu
         for (int l = 0; l < hauteur; l++) {
             for (int c = 0; c < largeur; c++) {
 
@@ -97,20 +110,26 @@ public class FenetreJeu extends JPanel {
                     System.out.println("l"+l);
                     System.out.println("c"+c);
 
-                    if (mur.estLibre(bille, tailleCase) && !tempb) {
+                    if (mur.Contact(bille, tailleCase) && !tempb) {
 
-                        mur.Contact(bille, tailleCase);
+                        mur.switchV(bille, tailleCase);
                         tempb = true;
+
 
                     }
 
                 }
             }
+
         }
 
-        this.bille.updateX(bille.getVx());
-        this.bille.updateY(bille.getVy());
+
 
     }
-
+    public static double getTailleBille() {
+        return tailleBille;
+    }
+    public static int getTailleCase() {
+        return tailleCase;
+    }
 }

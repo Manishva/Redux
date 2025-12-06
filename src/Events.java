@@ -8,8 +8,9 @@ public class Events implements MouseMotionListener, MouseListener {
     public Bille bille;
     protected  int sx, sy;
     private double tailleCase;
-    private MouseEvent mouseEvent;
+    private MouseEvent lastMouseEvent;
 
+    // creer les evenements pour les lier au jeu
     public Events(Bille bille, double tailleCase) {
         this.enjeu = false;
 
@@ -18,9 +19,23 @@ public class Events implements MouseMotionListener, MouseListener {
         this.sx = 0;
         this.tailleCase = tailleCase;
     }
+    // pour faire bouger la balle en continue, meme quand la souris ne bouge pas
     public void MouseNothing() {
-        if (this.mouseEvent != null) {
-            this.mouseMoved(this.mouseEvent);
+        if (this.lastMouseEvent != null) {
+            this.mouseMoved(this.lastMouseEvent);
+            this.sx = lastMouseEvent.getX();
+            this.sy = lastMouseEvent.getY();
+//            System.out.println("BIP : "+this.sx + " " + this.sy);
+
+            int xPixel = (int) (((bille.getX() ) * this.tailleCase) + bille.getRayon());
+            int yPixel = (int) (((bille.getY() ) * this.tailleCase) + bille.getRayon());
+//            System.out.println("xPixel : "+xPixel);
+//            System.out.println("yPixel : "+yPixel);
+            this.bille.calculateVx(sx - xPixel );
+            this.bille.calculateVy(sy - yPixel );
+//            System.out.println("dif 1 :" + (sx - xPixel));
+//            System.out.println("dif 2 :" + (sy - yPixel));
+//            System.out.println("bille : "+this.bille.getV());
             this.bille.frottement();
         }
 
@@ -30,31 +45,25 @@ public class Events implements MouseMotionListener, MouseListener {
     public void mouseDragged(MouseEvent e) {
 
     }
-
+//  recuperer les donner le la souris pour l'utiliser dans "MouseNothing" methode
     @Override
     public void mouseMoved(MouseEvent e) {
 
         if (enjeu) {
-            this.sx = e.getX();
-            this.sy = e.getY();
-
-            int xPixel = (int) ((bille.getX() * this.tailleCase));
-            int yPixel = (int) ((bille.getY() * this.tailleCase));
-            this.bille.calculateVx(sx - xPixel);
-            this.bille.calculateVy(sy - yPixel);
-            this.mouseEvent = e;
-
-
-
-
-
+            // test pour centrer la bille dans la souris au repos
+            if (e != lastMouseEvent){
+                this.lastMouseEvent = e;
+//            }else{
+//
+//              System.out.println( this.sx + " " + this.sy );
+            }
 
 
 
 
         }
     }
-
+//  pour detacher la souris du jeu
     @Override
     public void mouseClicked(MouseEvent e) {
         if (enjeu) {

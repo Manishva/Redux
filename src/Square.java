@@ -13,7 +13,7 @@ public abstract class Square {
     public int getLig() {
         return lig;
     }
-    public abstract boolean estLibre(Bille bille, int tailleCase);
+    public abstract boolean Contact(Bille bille, int tailleCase);
     public abstract String toString();
-    public abstract boolean Contact( Bille bille, int tailleCase);
+    public abstract boolean switchV(Bille bille, int tailleCase);
 }
