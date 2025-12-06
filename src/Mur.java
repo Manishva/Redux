@@ -24,18 +24,17 @@ public class Mur extends Square {
         if (((super.getCol() * tailleCase ) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)  <= 0)
                 && ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)>= 0)
                 && ((super.getLig() * tailleCase ) - (int) ((bille.getY() + bille.getRayon()) * tailleCase) <= 0)
-                && ((super.getLig() * tailleCase + tailleCase) - (int) ((bille.getY() ) * tailleCase) >= 0)) {
-            System.out.println("PASSSSSSSSSSSS");
+                && ((super.getLig() * tailleCase + tailleCase) - (int) ((bille.getY() + bille.getRayon() ) * tailleCase) >= 0)) {
+            //System.out.println("PASSSSSSSSSSSS");
 
 
             return true;
-//       } else if ( ((super.getCol() * tailleCase) - (int) (bille.getX() + 1 * bille.getRayon()) * tailleCase + tailleCase <= 0)
-//                && ((super.getCol() * tailleCase + tailleCase) - (int) (bille.getX() + 1 * bille.getRayon()) * tailleCase + tailleCase >= 0)
-//                && (((super.getLig() * tailleCase ) - (int) (bille.getY() ) * tailleCase) > 0)
-//                && ((super.getLig() * tailleCase - tailleCase) - (int) ((bille.getY() ) * tailleCase) <= 0)) {
-//                System.out.println("PASSSSSSSSSSSS");) {
-//                return true;
-
+       } else if (((super.getCol() * tailleCase ) - (int) ((bille.getX() ) * tailleCase)  <= 0)
+                && ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() ) * tailleCase)>= 0)
+                && ((super.getLig() * tailleCase ) - (int) ((bille.getY() + bille.getRayon()) * tailleCase) <= 0)
+                && ((super.getLig() * tailleCase + tailleCase) - (int) ((bille.getY() + bille.getRayon() ) * tailleCase) >= 0)) {
+                System.out.println("PASSSSSSSSSSSS");
+                return true;
         } else {
             FenetreJeu.tempb=false;
 
@@ -53,10 +52,20 @@ public class Mur extends Square {
         if (((super.getCol() * tailleCase ) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)  <= 0)
                 && ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)>= 0)
         ) {
-            System.out.println("SWICTH");
+          //  System.out.println("SWICTH");
             bille.switchVX();
 
             return true;
+
+
+        } else if (((super.getCol() * tailleCase ) - (int) ((bille.getX() ) * tailleCase)  <= 0)
+                && ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() ) * tailleCase)>= 0)) {
+              System.out.println("SWICTH");
+            bille.switchVX();
+            return true;
+
+
+
 //        } else if (((super.getCol() * tailleCase + tailleCase - (int) (bille.getY()+ bille.getRayon())*tailleCase) <= 0)
 //                && ((super.getCol() * tailleCase ) - (int) (bille.getY()+ bille.getRayon()) * tailleCase >= 0)) {
 //            bille.switchVY();

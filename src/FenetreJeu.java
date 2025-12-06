@@ -4,7 +4,7 @@ import java.awt.*;
 public class FenetreJeu extends JPanel {
     private final Labyrinthe labyrinthe;
     private final Bille bille;
-    private static final int tailleCase = 50;
+    private static final int tailleCase = 30;
     private final int hauteur, largeur;
     private JFrame frame;
     private Events events;
@@ -107,8 +107,8 @@ public class FenetreJeu extends JPanel {
 
                 if (s instanceof Mur) {
                     Mur mur = (Mur) s;
-                    System.out.println("l"+l);
-                    System.out.println("c"+c);
+//                    System.out.println("l"+l);
+//                    System.out.println("c"+c);
 
                     if (mur.Contact(bille, tailleCase) && !tempb) {
 

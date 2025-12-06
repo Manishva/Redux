@@ -22,13 +22,14 @@ public class Events implements MouseMotionListener, MouseListener {
     // pour faire bouger la balle en continue, meme quand la souris ne bouge pas
     public void MouseNothing() {
         if (this.lastMouseEvent != null) {
+
             this.mouseMoved(this.lastMouseEvent);
             this.sx = lastMouseEvent.getX();
             this.sy = lastMouseEvent.getY();
 //            System.out.println("BIP : "+this.sx + " " + this.sy);
 
-            int xPixel = (int) (((bille.getX() ) * this.tailleCase) + bille.getRayon());
-            int yPixel = (int) (((bille.getY() ) * this.tailleCase) + bille.getRayon());
+            int xPixel = (int) (((bille.getX() - bille.getRayon()) * this.tailleCase) + 25);
+            int yPixel = (int) (((bille.getY() - bille.getRayon()) * this.tailleCase) + 45);
 //            System.out.println("xPixel : "+xPixel);
 //            System.out.println("yPixel : "+yPixel);
             this.bille.calculateVx(sx - xPixel );
