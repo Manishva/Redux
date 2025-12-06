@@ -12,12 +12,12 @@ public class Bille {
     private double r = 0.3;
     private double f = 0.0005;
     private double a = 0.00005;
+    private double maxSpeed = 0.1;
 
 
     public Bille(double x, double y) {
         this.x = x - getRayon();
         this.y = y - getRayon();
-
     }
 
     public double getF() {
@@ -75,7 +75,7 @@ public class Bille {
     // Calcul de la vitesse en fonction de l'accélération (souris)
     public double calculateVx(int sx) {
 
-        if (getV() < 0.2){
+        if (getV() < maxSpeed){
             this.vx = this.vx + sx*a;
         }
 
@@ -83,7 +83,7 @@ public class Bille {
 
     }
     public double calculateVy(int sy) {
-        if (getV() < 0.2){
+        if (getV() < maxSpeed){
             this.vy = this.vy + sy*a;
         }
 

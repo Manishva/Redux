@@ -3,13 +3,12 @@ import java.awt.*;
 
 public class FenetreJeu extends JPanel {
     private final Labyrinthe labyrinthe;
-    private final Bille bille;
+    private static Bille bille;
     private static final int tailleCase = 30;
     private final int hauteur, largeur;
     private JFrame frame;
     private Events events;
     public static boolean tempb;
-    private static final double tailleBille = 0.6;
 
     public FenetreJeu(Labyrinthe l, Bille bille) {
 
@@ -110,7 +109,7 @@ public class FenetreJeu extends JPanel {
 //                    System.out.println("l"+l);
 //                    System.out.println("c"+c);
 
-                    if (mur.Contact(bille, tailleCase) && !tempb) {
+                    if (mur.touch(bille) && !tempb) {
 
                         mur.switchV(bille, tailleCase);
                         tempb = true;
@@ -126,10 +125,12 @@ public class FenetreJeu extends JPanel {
 
 
     }
-    public static double getTailleBille() {
-        return tailleBille;
-    }
+
     public static int getTailleCase() {
         return tailleCase;
+    }
+
+    public static Bille getBille() {
+        return bille;
     }
 }

@@ -10,7 +10,7 @@ public class Events implements MouseMotionListener, MouseListener {
     private double tailleCase;
     private MouseEvent lastMouseEvent;
 
-    // creer les evenements pour les lier au jeu
+    // Créer les événements pour les lier au jeu
     public Events(Bille bille, double tailleCase) {
         this.enjeu = false;
 
@@ -19,7 +19,7 @@ public class Events implements MouseMotionListener, MouseListener {
         this.sx = 0;
         this.tailleCase = tailleCase;
     }
-    // pour faire bouger la balle en continue, meme quand la souris ne bouge pas
+    // Quand la souris est statique, la bille se rapproche d'elle quand meme
     public void MouseNothing() {
         if (this.lastMouseEvent != null) {
 
@@ -46,7 +46,7 @@ public class Events implements MouseMotionListener, MouseListener {
     public void mouseDragged(MouseEvent e) {
 
     }
-//  recuperer les donner le la souris pour l'utiliser dans "MouseNothing" methode
+//  récupérer les données de la souris pour les utiliser dans la méthode MouseNothing()
     @Override
     public void mouseMoved(MouseEvent e) {
 

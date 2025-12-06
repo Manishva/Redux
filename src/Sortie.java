@@ -4,16 +4,23 @@ public class Sortie extends Square {
         super(lig, col);
     }
 
-    public boolean Contact(Bille bille, int tailleCase) {
-        return true;
-    }
-
+    @Override
     public String toString() {
         return "( )";
     }
 
     @Override
-    public boolean switchV(Bille bille, int tailleCase) {
+    public boolean isEmpty(){
         return false;
+    }
+
+    @Override
+    public void enter(Bille b){
+
+    }
+
+    @Override
+    public void leave(Bille b){
+
     }
 }
