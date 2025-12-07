@@ -106,8 +106,8 @@ public class FenetreJeu extends JPanel {
 
                 if (s instanceof Mur) {
                     Mur mur = (Mur) s;
-//                    System.out.println("l"+l);
-//                    System.out.println("c"+c);
+//                    System.out.println("l"+l);        // Débogage
+//                    System.out.println("c"+c);        // Débogage
 
                     if (mur.touch(bille) && !tempb) {
 

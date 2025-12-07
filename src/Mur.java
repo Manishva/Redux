@@ -27,13 +27,6 @@ public class Mur extends Square {
             bille.switchVX();
 
 
-
-//        } else if (((super.getCol() * tailleCase + tailleCase - (int) (bille.getY()+ bille.getRayon())*tailleCase) <= 0)
-//                && ((super.getCol() * tailleCase ) - (int) (bille.getY()+ bille.getRayon()) * tailleCase >= 0)) {
-//            bille.switchVY();
-//            return true;
-
-
         }else {
             return;
         }
