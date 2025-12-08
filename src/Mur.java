@@ -1,7 +1,7 @@
 public class Mur extends Square {
 
-    public Mur(int lig, int x) {
-        super(lig, x);
+    public Mur(int y, int x) {
+        super(y, x);
     }
 
 
