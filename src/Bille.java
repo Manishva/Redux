@@ -12,7 +12,7 @@ public class Bille {
     protected static final double r = 0.3;
     private double f = 0.0005;
     private double a = 0.00005;
-    private double maxSpeed = 0.1;
+    private double maxSpeed = 5;
 
 
     public Bille(double x, double y) {

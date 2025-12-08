@@ -4,7 +4,7 @@ import java.awt.*;
 public class FenetreJeu extends JPanel {
     private final Labyrinthe labyrinthe;
     private static Bille bille;
-    private static final int tailleCase = 80;
+    private static final int tailleCase = 30;
     private final int hauteur, largeur;
     private JFrame frame;
     private Events events;

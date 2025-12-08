@@ -100,11 +100,19 @@ public abstract class Square {
                 &&((gety() * tailleCase + tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) >= 0)
                 &&((getx() * tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) <= 0)
                 &&((getx() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)){
-            System.out.println("HAUTTTTTTTTTT");    // Débogage
 
+            System.out.println("HAUTTTTTTTTTT");    // Débogage
             return true;
 
-        } else {
+        }else if (((gety() * tailleCase + tailleCase) - (int) (b.getY() * tailleCase) >= 0)
+                &&((gety() * tailleCase) - (int) (b.getY() * tailleCase) <= 0)
+                &&((getx() * tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) <= 0)
+                &&((getx() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)){
+
+            System.out.println("BASSSSSSSSSSSS");    // Débogage
+            return true;
+
+    }else {
             FenetreJeu.tempb=false;
             return false;
         }

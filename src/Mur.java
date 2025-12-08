@@ -32,8 +32,11 @@ public class Mur extends Square {
             System.out.println("SWITCH");
             b.switchVY();
         }
-//        else if {
-//        }
+        else if (((gety() * tailleCase + tailleCase) - (int) (b.getY() * tailleCase) >= 0)
+                &&((gety() * tailleCase) - (int) (b.getY() * tailleCase) <= 0)){
+            System.out.println("SWITCH");
+            b.switchVY();
+        }
 
 
 
