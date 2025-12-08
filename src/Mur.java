@@ -32,7 +32,6 @@ public class Mur extends Square {
             System.out.println("SWITCH");
             b.switchVY();
         }
-
 //        else if {
 //        }
 

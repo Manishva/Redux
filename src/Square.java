@@ -108,7 +108,6 @@ public abstract class Square {
             FenetreJeu.tempb=false;
             return false;
         }
-
     }
 
     public abstract String toString();
