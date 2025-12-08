@@ -81,9 +81,9 @@ public abstract class Square {
 //        //--------------------------------------------------TENTATIVE 3 Colisions 4 cotés--------------------------------------------------------------------//
                  // Collision par la Gauche
         if (((getCol() * tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)  <= 0)                        // Ici chef on est d'accord que quand on prend les coord d'une bille il correspond à son centre
-                && ((getCol() * tailleCase + tailleCase) - (int) (b.getX() * tailleCase)>= 0)                           // Donc pourquoi on fait b.getX() + 2 * b.getRayon() ??? En faisant ça on sort du cercle non ???
+                && (((getCol()+1) * tailleCase) - (int) (b.getX() * tailleCase)>= 0)                           // Donc pourquoi on fait b.getX() + 2 * b.getRayon() ??? En faisant ça on sort du cercle non ???
                 && ((getLig() * tailleCase ) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
-                && ((getLig() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
+                && (((getLig()+1) * tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
             //System.out.println("PASSSSSSSSSSSS");     // Débogage
             return true;
 
@@ -96,13 +96,13 @@ public abstract class Square {
             return true;
 
             //Collision par le haut     INCOMPLET
-        }else if (((getLig() * tailleCase) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
-                &&((getLig() * tailleCase + tailleCase) - (int) ((b.getY() - b.getRayon()) * tailleCase) >= 0)
-                &&((getCol() * tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) <= 0)
-                &&((getCol() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)){
-            //System.out.println("HAUTTTTTTTTTT");    // Débogage
-
-            return true;
+//        }else if (((getLig() * tailleCase) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
+//                &&((getLig() * tailleCase + tailleCase) - (int) ((b.getY() - b.getRayon()) * tailleCase) >= 0)
+//                &&((getCol() * tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) <= 0)
+//                &&((getCol() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)){
+//            //System.out.println("HAUTTTTTTTTTT");    // Débogage
+//
+//            return true;
 
         } else {
             FenetreJeu.tempb=false;
