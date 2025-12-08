@@ -1,7 +1,7 @@
 public class Mur extends Square {
 
-    public Mur(int lig, int col) {
-        super(lig, col);
+    public Mur(int lig, int x) {
+        super(lig, x);
     }
 
 
@@ -13,23 +13,28 @@ public class Mur extends Square {
     }
 
     // switcher la vitesse quand il y a contact
-    public void switchV(Bille bille, int tailleCase) {
-        if (((super.getCol() * tailleCase ) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)  <= 0)
-                && ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() + 2 * bille.getRayon()) * tailleCase)>= 0)
+    public void switchV(Bille b, int tailleCase) {
+        if (((super.getx() * tailleCase ) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)  <= 0)
+                && ((super.getx() * tailleCase + tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)>= 0)
         ) {
-          //  System.out.println("SWICTH");
-            bille.switchVX();
+          //  System.out.println("SWITCH");
+            b.switchVX();
 
 
-        } else if (((super.getCol() * tailleCase ) - (int) ((bille.getX() ) * tailleCase)  <= 0)
-                && ((super.getCol() * tailleCase + tailleCase) - (int) ((bille.getX() ) * tailleCase)>= 0)) {
-              System.out.println("SWICTH");
-            bille.switchVX();
+        } else if (((super.getx() * tailleCase ) - (int) ((b.getX() ) * tailleCase)  <= 0)
+                && ((super.getx() * tailleCase + tailleCase) - (int) ((b.getX() ) * tailleCase)>= 0)) {
+            //System.out.println("SWITCH");
+            b.switchVX();
 
 
-        }else {
-            return;
+        }if (((gety() * tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) <= 0)
+                &&((gety() * tailleCase + tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) >= 0)) {
+            System.out.println("SWITCH");
+            b.switchVY();
         }
+
+//        else if {
+//        }
 
 
 

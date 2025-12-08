@@ -9,15 +9,15 @@ public class Bille {
 
     private double x, y;
     private double vx, vy, v;
-    private double r = 0.3;
+    protected static final double r = 0.3;
     private double f = 0.0005;
     private double a = 0.00005;
     private double maxSpeed = 0.1;
 
 
     public Bille(double x, double y) {
-        this.x = x - getRayon();
-        this.y = y - getRayon();
+        this.x = x;
+        this.y = y;
     }
 
     public double getF() {

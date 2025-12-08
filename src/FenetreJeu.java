@@ -4,7 +4,7 @@ import java.awt.*;
 public class FenetreJeu extends JPanel {
     private final Labyrinthe labyrinthe;
     private static Bille bille;
-    private static final int tailleCase = 30;
+    private static final int tailleCase = 80;
     private final int hauteur, largeur;
     private JFrame frame;
     private Events events;
@@ -59,11 +59,7 @@ public class FenetreJeu extends JPanel {
                     g.setColor(Color.GRAY);
                 }
                 // 2. Dessin du fon(x = colonne * taille, y = ligne * taille)
-                if (c==0 && l ==0){
-                    g.fillRect(c * tailleCase, l * tailleCase, tailleCase, tailleCase);
-                }else{
-                    g.fillRect(c * tailleCase, l * tailleCase, tailleCase, tailleCase);
-                }
+                g.fillRect(c * tailleCase, l * tailleCase, tailleCase, tailleCase);
 
 
             }

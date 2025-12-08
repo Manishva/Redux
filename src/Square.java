@@ -1,17 +1,17 @@
 public abstract class Square {
 
-    private final int lig, col;
+    private final int y, x;
 
-    public Square(int lig, int col) {
-        this.lig = lig;
-        this.col = col;
+    public Square(int y, int x) {
+        this.y = y;
+        this.x = x;
     }
 
-    public int getCol() {
-        return col;
+    public int getx() {
+        return x;
     }
-    public int getLig() {
-        return lig;
+    public int gety() {
+        return y;
     }
 
     public abstract boolean isEmpty();
@@ -43,20 +43,20 @@ public abstract class Square {
         // rayon en pixel : 5
         //taille case en pixel : 10
 //        System.out.println(b.getRayon());
-//        System.out.println("getLig : " + (getCol() * tailleCase + tailleCase));
+//        System.out.println("gety : " + (getx() * tailleCase + tailleCase));
 //        System.out.println("YBALL : " + (b.getY()) * tailleCase);
-//        System.out.println("dif 1 :" + ((getCol() * tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)));
-//        System.out.println("dif 2 :" + ((getCol() * tailleCase + tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)));
-//        System.out.println("dif 3 :" + ((getLig() * tailleCase) - (int) ((b.getY() + b.getRayon()) * tailleCase)));
-//        System.out.println("dif 4 :" + ((getLig() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon()) * tailleCase)));
+//        System.out.println("dif 1 :" + ((getx() * tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)));
+//        System.out.println("dif 2 :" + ((getx() * tailleCase + tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)));
+//        System.out.println("dif 3 :" + ((gety() * tailleCase) - (int) ((b.getY() + b.getRayon()) * tailleCase)));
+//        System.out.println("dif 4 :" + ((gety() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon()) * tailleCase)));
         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 
         //-----------------------------------------------------TENTATIVE 1 Colision gauche----------------------------------------------------------------//
-//        if (((getCol() - (b.getX() + b.getRayon())) * tailleCase <= 0)                        // Vérifie si la bille a franchi le coté gauche de la case
-//            && (((getCol() + 1) - ((int) (b.getX() + b.getRayon()))) * tailleCase >= 0)       // Vérifie si la bille a franchi le coté droit de la case                                   //
-//            && ((getLig() - (b.getY() - b.getRayon())) * tailleCase <= 0)                     // Si j'ai bien compris on vérifie que la bille ne franchit pas la ligne du haut            ()->//
-//            && (((getLig() + 1) - ((int) (b.getY() + b.getRayon()))) * tailleCase >= 0)) {    // Si j'ai bien compris on vérifie que la bille ne franchit pas la ligne du bas.            //
+//        if (((getx() - (b.getX() + b.getRayon())) * tailleCase <= 0)                        // Vérifie si la bille a franchi le coté gauche de la case
+//            && (((getx() + 1) - ((int) (b.getX() + b.getRayon()))) * tailleCase >= 0)       // Vérifie si la bille a franchi le coté droit de la case                                   //
+//            && ((gety() - (b.getY() - b.getRayon())) * tailleCase <= 0)                     // Si j'ai bien compris on vérifie que la bille ne franchit pas la ligne du haut            ()->//
+//            && (((gety() + 1) - ((int) (b.getY() + b.getRayon()))) * tailleCase >= 0)) {    // Si j'ai bien compris on vérifie que la bille ne franchit pas la ligne du bas.            //
 //            System.out.println("PASSSSSSSSSSSS");     // Débogage
 //            return true;
 
@@ -64,10 +64,10 @@ public abstract class Square {
          * Première tentative (en utilisant mes neurones) : ca marche pas starfallah*/
 
         //----------------------------------------------------TENTATIVE 2 Colision gauche-----------------------------------------------------------------//
-//        if ((getCol() - ((int)(b.getX() + 2 * b.getRayon())) * tailleCase <= 0)
-//            && (((getCol() + 1) - ((int) b.getX())) * tailleCase >= 0)                          // Ici je comprends pas pk on regarde le bas de la bille lorsqu'on regarde si la bille touche
-//            && ((getLig() - ((int)(b.getY() + b.getRayon()))) * tailleCase <= 0)                       // le haut de la case -> pk on met un "+" au lieu d'un "-" ici dans b.getY() + b.getRayon() ?????
-//            && (((getLig() + 1) - ((int) (b.getY() + b.getRayon()))) * tailleCase >= 0)) {
+//        if ((getx() - ((int)(b.getX() + 2 * b.getRayon())) * tailleCase <= 0)
+//            && (((getx() + 1) - ((int) b.getX())) * tailleCase >= 0)                          // Ici je comprends pas pk on regarde le bas de la bille lorsqu'on regarde si la bille touche
+//            && ((gety() - ((int)(b.getY() + b.getRayon()))) * tailleCase <= 0)                       // le haut de la case -> pk on met un "+" au lieu d'un "-" ici dans b.getY() + b.getRayon() ?????
+//            && (((gety() + 1) - ((int) (b.getY() + b.getRayon()))) * tailleCase >= 0)) {
 //
 //            //System.out.println("PASSSSSSSSSSSS");
 //            return true;
@@ -78,29 +78,29 @@ public abstract class Square {
          * Du coup je vais continuer sur l'algo de base que tu m'as donné avec les modifications que j'ai faite en terme de variable
          * */
 
-//        //--------------------------------------------------TENTATIVE 3 Colisions 4 cotés--------------------------------------------------------------------//
+        //--------------------------------------------------TENTATIVE 3 Colisions 4 cotés--------------------------------------------------------------------//
                  // Collision par la Gauche
-        if (((getCol() * tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)  <= 0)                        // Ici chef on est d'accord que quand on prend les coord d'une bille il correspond à son centre
-                && ((getCol() * tailleCase + tailleCase) - (int) (b.getX() * tailleCase)>= 0)                           // Donc pourquoi on fait b.getX() + 2 * b.getRayon() ??? En faisant ça on sort du cercle non ???
-                && ((getLig() * tailleCase ) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
-                && ((getLig() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
+        if (((getx() * tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)  <= 0)
+                && ((getx() * tailleCase + tailleCase) - (int) (b.getX() * tailleCase)>= 0)                           // Donc pourquoi on fait b.getX() + 2 * b.getRayon() ??? En faisant ça on sort du cercle non ???
+                && ((gety() * tailleCase ) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
+                && ((gety() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
             //System.out.println("PASSSSSSSSSSSS");     // Débogage
             return true;
 
             // Collision par la Droite
-        } else if (((getCol() * tailleCase ) - (int) ((b.getX() ) * tailleCase)  <= 0)
-                && ((getCol() * tailleCase + tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase)>= 0)
-                && ((getLig() * tailleCase ) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
-                && ((getLig() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
+        } else if (((getx() * tailleCase + tailleCase) - (int) (b.getX() * tailleCase) >= 0)
+                && ((getx() * tailleCase ) - (int) (b.getX() * tailleCase)  <= 0)
+                && ((gety() * tailleCase ) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
+                && ((gety() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
             //System.out.println("PASSSSSSSSSSSS2");    // Débogage
             return true;
 
-            //Collision par le haut     INCOMPLET
-        }else if (((getLig() * tailleCase) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
-                &&((getLig() * tailleCase + tailleCase) - (int) ((b.getY() - b.getRayon()) * tailleCase) >= 0)
-                &&((getCol() * tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) <= 0)
-                &&((getCol() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)){
-            //System.out.println("HAUTTTTTTTTTT");    // Débogage
+            //Collision par le haut
+        }else if (((gety() * tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) <= 0)
+                &&((gety() * tailleCase + tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) >= 0)
+                &&((getx() * tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) <= 0)
+                &&((getx() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)){
+            System.out.println("HAUTTTTTTTTTT");    // Débogage
 
             return true;
 
