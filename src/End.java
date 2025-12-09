@@ -9,6 +9,7 @@ public class End extends Square{
 
     @Override
     public void enter(Bille b) {
+
         System.exit(1);    }
 
     @Override

@@ -1,6 +1,7 @@
 public abstract class Square {
 
     private final int y, x;
+    protected boolean switchDirection;
 
     public Square(int y, int x) {
         this.y = y;
