@@ -8,7 +8,11 @@ public class FenetreJeu extends JPanel {
     private final int hauteur, largeur;
     private JFrame frame;
     private Events events;
+    private JLabel label;
     public static boolean tempb;
+    public static long chrono;
+    private int second;
+    private int minute;
 
     public FenetreJeu(Labyrinthe l, Bille bille) {
 
@@ -16,6 +20,8 @@ public class FenetreJeu extends JPanel {
         this.bille = bille;
         this.hauteur = l.getHauteur();
         this.largeur = l.getLargeur();
+        this.second = 0;
+        this.minute = 0;
 
         setBackground(Color.GRAY);
         setPreferredSize(new Dimension(largeur * tailleCase, hauteur * tailleCase));
@@ -31,6 +37,15 @@ public class FenetreJeu extends JPanel {
         frame.getContentPane().add(this);
         frame.pack();
         frame.setVisible(true);
+        this.label = new JLabel("Redux");
+        frame.getContentPane().add(label, BorderLayout.SOUTH);
+        label.setText(String.valueOf(chrono));
+        label.setFont(new Font("Arial", Font.BOLD, 30));
+
+
+
+
+
 
 
 
@@ -38,6 +53,26 @@ public class FenetreJeu extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        chrono = chrono + Lanceur.tempo;
+
+
+        if (chrono >= 1000) {
+            chrono = chrono - 1000;
+            second++;
+        }
+        if (second >= 60) {
+            second = 0;
+            minute++;
+        }
+
+
+
+
+        label.setText(String.valueOf(minute +" :" + second+ "." + chrono));
+
+
+
+
 
 
         // Couche 1 : le Terrain
