@@ -53,6 +53,8 @@ public class FenetreJeu extends JPanel {
                 //Mur
                 if (laCase instanceof Mur) {
                     g.setColor(Color.BLACK);
+                } else if (laCase instanceof End){
+                    g.setColor(Color.ORANGE);
                 }
                 // Cases vides
                 else {
@@ -111,6 +113,12 @@ public class FenetreJeu extends JPanel {
                         tempb = true;
 
 
+                    }
+
+                } else if(s instanceof End){
+                    End end = (End) s;
+                    if (end.touch(bille) && !tempb) {
+                        end.enter(bille);
                     }
 
                 }

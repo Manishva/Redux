@@ -26,7 +26,7 @@ public class Labyrinthe {
                         // Murs et Vide
                         case '#': cc = new Mur(l, c); break;
                         case ' ': cc = new CaseOrdinaire(l, c); break;
-
+                        case 'e': cc= new End(l,c); break;
                         default: cc = new CaseOrdinaire(l,c); break;
                     }
                     carte[l][c] = cc;
