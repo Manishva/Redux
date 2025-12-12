@@ -1,18 +1,22 @@
-import javax.swing.Timer;
+import javax.swing.*;
 
 public class Lanceur {
-    public static int tempo = 10;
+
     public static void main(String[] args) {
 
-        Jeu jeu = new Jeu("lab.txt");
-        FenetreJeu graphic = new FenetreJeu(jeu.labyrinthe, jeu.getBille());
-        Timer timer = new Timer(tempo, e -> {
+        PlayButton playButton = new PlayButton();
+        JFrame frame = new JFrame("Lanceur");
 
-            graphic.repaint();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+
+        frame.setVisible(true);
+        frame.setResizable(false);
+        frame.add(playButton);
+        frame.setSize(500, 500);
 
 
-        });
-        timer.setInitialDelay(0);
-        timer.start();
+
     }
 }

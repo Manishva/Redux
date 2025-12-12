@@ -53,7 +53,7 @@ public class FenetreJeu extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        chrono = chrono + Lanceur.tempo;
+        chrono = chrono + PlayButton.tempo;
 
 
         if (chrono >= 1000) {
