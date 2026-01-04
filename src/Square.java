@@ -1,7 +1,7 @@
 public abstract class Square {
 
     private final int y, x;
-    protected boolean switchDirection;
+    public static boolean isInside; ;
 
     public Square(int y, int x) {
         this.y = y;
@@ -33,6 +33,7 @@ public abstract class Square {
                 && ((gety() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
 
             //System.out.println("----------GAUCHE-----------");     // Débogage
+            isInside = true;
             return true;
 
             // Collision par la Droite
@@ -42,6 +43,7 @@ public abstract class Square {
                 && ((gety() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
 
             //System.out.println("----------DROITE-----------");    // Débogage
+            isInside = true;
             return true;
 
             //Collision par le haut
@@ -51,6 +53,7 @@ public abstract class Square {
                 &&((getx() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)){
 
             //System.out.println("----------HAUT-----------");    // Débogage
+            isInside = true;
             return true;
 
             //Collision par le haut
@@ -60,10 +63,12 @@ public abstract class Square {
                 &&((getx() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)){
 
             //System.out.println("----------BAS-----------");    // Débogage
+            isInside = true;
             return true;
 
     }else {
             //FenetreJeu.tempb=false;
+            isInside = false;
             return false;
         }
     }

@@ -2,12 +2,12 @@ import static java.lang.Math.sqrt;
 
 public class Bille {
 
-    private double x, y;                            // Coordonnées x, y
-    private double vx, vy, v;                       // Normes des vecteurs vitesse
-    protected static final double r = 0.3;          // Rayon
-    private double f = 0.0005;                      // Coefficient de frottements
-    private double a = 0.00005;                     // Facteur d'accélération
-    private double maxSpeed = 3;                    // Seuil de vitesse
+    private double x, y;
+    private double vx, vy, v;
+    protected static final double r = 0.3;
+    private double f = 0.0005;
+    private double a = 0.00005;
+    private double maxSpeed = 3;
 
 
     // Constructeur de la Bille
@@ -57,15 +57,16 @@ public class Bille {
         this.vy = this.vy * (1-(this.f/this.getV()));
     }
 
+
     // calcul la norme de la vitesse pour l'utiliser dans des calcul
     public void setV(double vx, double vy) {
         this.v = sqrt(this.vx * this.vx + this.vy * this.vy);
     }
-
     // Déplacement de la Bille
-    public void updateX(double vx){
-        this.x = this.x + vx ;
+    public void updateX(double vx) {
+        this.x = this.x + vx;
     }
+
     public void updateY(double vy){
         this.y = this.y + vy ;
     }
@@ -78,10 +79,20 @@ public class Bille {
             this.vx = this.vx + sx*a;
         }
 
+
+
     }
     public void updateVy(int sy) {
-        if (getV() < maxSpeed){
-            this.vy = this.vy + sy*a;
+        if (Square.isInside && ((getVy() > -0.01 ) && ( getVy() < 0.01))){
+            this.vy = 0;
+            System.out.println("WWW");
+        }else {
+            if (getV() < maxSpeed) {
+                System.out.println("???" + Square.isInside);
+                this.vy = this.vy + sy * a;
+            }
         }
+
     }
+
 }

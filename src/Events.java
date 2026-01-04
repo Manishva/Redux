@@ -22,7 +22,7 @@ public class Events implements MouseMotionListener, MouseListener {
 
     // Quand la souris est statique, la bille se rapproche d'elle quand meme
     public void MouseNothing() {
-        if (this.lastMouseEvent != null) {
+        if (this.lastMouseEvent != null ) {
 
             this.mouseMoved(this.lastMouseEvent);
             this.sx = lastMouseEvent.getX();

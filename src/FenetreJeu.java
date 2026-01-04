@@ -14,6 +14,7 @@ public class FenetreJeu extends JPanel {
     static int second;
     static int minute;
 
+
     public FenetreJeu(Labyrinthe l, Bille bille) {
 
         this.labyrinthe = l;
@@ -144,8 +145,12 @@ public class FenetreJeu extends JPanel {
 
                     if (mur.touch(bille) /*&& !tempb*/) {
 
+
+                        System.out.println(tempb);
+
                         mur.switchV(bille, tailleCase);
                         //tempb = true;
+
 
 
                     }

@@ -25,6 +25,7 @@ public class Mur extends Square {
                 b.switchVX();
 
 
+
             } else if (((super.getx() * tailleCase) - (int) ((b.getX()) * tailleCase) <= 0)
                     && ((super.getx() * tailleCase + tailleCase) - (int) ((b.getX()) * tailleCase) >= 0)) {
                 //System.out.println("SWITCH");
@@ -40,11 +41,29 @@ public class Mur extends Square {
             if (((gety() * tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) <= 0)
                     && ((gety() * tailleCase + tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) >= 0)) {
                 System.out.println("SWITCH");
-                b.switchVY();
+                if (b.getVy()>0){
+                    System.out.println("SWITCH VY");
+                    b.switchVY();
+//                    if (b.getVy()<-0.1){
+//                        b.setV(b.getVx(), 0);
+//                    }else{
+//                        b.switchVY();
+//                    }
+
+                }
             } else if (((gety() * tailleCase + tailleCase) - (int) (b.getY() * tailleCase) >= 0)
                     && ((gety() * tailleCase) - (int) (b.getY() * tailleCase) <= 0)) {
-                System.out.println("SWITCH");
-                b.switchVY();
+                System.out.println("SWITCH2");
+                if (b.getVy()<0){
+                    System.out.println("SWITCH VY2");
+                    b.switchVY();
+//                    if (b.getVy()<0.1){
+//                        b.setV(b.getVx(), 0);
+//                    }else{
+//                        b.switchVY();
+//                    }
+                }
+
             }
         }
 
