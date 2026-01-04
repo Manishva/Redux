@@ -16,9 +16,10 @@ public class PlayButton extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-
+        Lanceur.frame.setVisible(false);
         Jeu jeu = new Jeu("lab.txt");
         FenetreJeu graphic = new FenetreJeu(jeu.labyrinthe, jeu.getBille());
+
         Timer timer = new Timer(tempo, ev -> {
 
             graphic.repaint();

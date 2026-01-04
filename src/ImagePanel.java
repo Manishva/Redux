@@ -1,10 +1,26 @@
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class ImagePanel extends JPanel {
-    private Image image;
+    private final BufferedImage image;
 
     public ImagePanel() {
-        image = new ImageIcon("Oxyd.png").getImage();
+        try {
+            this.image = ImageIO.read(new File("src/Reduxo2.png"));
+
+
+        } catch (IOException ex) {
+            throw new IllegalArgumentException("String Format Error");
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(image, 0, 0, this);
     }
 }

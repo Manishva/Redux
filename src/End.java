@@ -9,7 +9,7 @@ public class End extends Square{
 
     @Override
     public void enter(Bille b) {
-
+        System.out.println(FenetreJeu.minute +" :" + FenetreJeu.second+ "." + FenetreJeu.chrono);
         System.exit(1);    }
 
     @Override

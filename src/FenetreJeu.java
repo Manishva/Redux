@@ -11,8 +11,8 @@ public class FenetreJeu extends JPanel {
     private JLabel label;
     public static boolean tempb;
     public static long chrono;
-    private int second;
-    private int minute;
+    static int second;
+    static int minute;
 
     public FenetreJeu(Labyrinthe l, Bille bille) {
 
