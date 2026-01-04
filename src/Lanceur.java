@@ -15,7 +15,7 @@ public class Lanceur {
         frame.setLocationRelativeTo(null);
         playButton.setBounds(80,80, 100, 40);
         imagePanel.setBounds(0,0,582, 301);
-        frame.setSize(582, 301);
+        frame.setSize(582, 333);
         frame.setResizable(true);
         frame.add(imagePanel);
         frame.add(playButton);

@@ -5,9 +5,9 @@ public class Bille {
     private double x, y;
     private double vx, vy, v;
     protected static final double r = 0.3;
-    private double f = 0.0005;
+    protected static double f = 0.0005;
     private double a = 0.00005;
-    private double maxSpeed = 3;
+    private double maxSpeed = 0.25;
 
 
     // Constructeur de la Bille
@@ -82,6 +82,17 @@ public class Bille {
 
 
     }
+
+    public void updateVy(int sy) {
+
+        if (getV() < maxSpeed){
+            this.vy = this.vy + sy*a;
+        }
+
+
+
+    }
+/*
     public void updateVy(int sy) {
         if (Square.isInside && ((getVy() > -0.01 ) && ( getVy() < 0.01))){
             this.vy = 0;
@@ -92,7 +103,6 @@ public class Bille {
                 this.vy = this.vy + sy * a;
             }
         }
-
     }
-
+*/
 }

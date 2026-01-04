@@ -9,13 +9,13 @@ public class Mur extends Square {
 
     @Override
     public String toString() {
-        return "###";
+        return "#";
     }
 
     // switcher la vitesse quand il y a contact
     public void switchV(Bille b, int tailleCase) {
-        if (((gety() * tailleCase ) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
-                && ((gety() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
+        if (((super.gety() * tailleCase ) - (int) ((b.getY() + b.getRayon()) * tailleCase) <= 0)
+                && ((super.gety() * tailleCase + tailleCase) - (int) ((b.getY() + b.getRayon() ) * tailleCase) >= 0)) {
 
 
             if (((super.getx() * tailleCase) - (int) ((b.getX() + 2 * b.getRayon()) * tailleCase) <= 0)
@@ -34,12 +34,12 @@ public class Mur extends Square {
 
             }
         }
-        if (((getx() * tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) <= 0)
-                &&((getx() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)) {
+        if (((super.getx() * tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) <= 0)
+                &&((super.getx() * tailleCase + tailleCase) - (int) ((b.getX() + b.getRayon()) * tailleCase) >= 0)) {
 
 
-            if (((gety() * tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) <= 0)
-                    && ((gety() * tailleCase + tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) >= 0)) {
+            if (((super.gety() * tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) <= 0)
+                    && ((super.gety() * tailleCase + tailleCase) - (int) ((b.getY() + 2 * b.getRayon()) * tailleCase) >= 0)) {
                 System.out.println("SWITCH");
                 if (b.getVy()>0){
                     System.out.println("SWITCH VY");
@@ -51,8 +51,8 @@ public class Mur extends Square {
 //                    }
 
                 }
-            } else if (((gety() * tailleCase + tailleCase) - (int) (b.getY() * tailleCase) >= 0)
-                    && ((gety() * tailleCase) - (int) (b.getY() * tailleCase) <= 0)) {
+            } else if (((super.gety() * tailleCase + tailleCase) - (int) (b.getY() * tailleCase) >= 0)
+                    && ((super.gety() * tailleCase) - (int) (b.getY() * tailleCase) <= 0)) {
                 System.out.println("SWITCH2");
                 if (b.getVy()<0){
                     System.out.println("SWITCH VY2");

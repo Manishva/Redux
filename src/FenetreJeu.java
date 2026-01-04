@@ -6,7 +6,7 @@ public class FenetreJeu extends JPanel {
     private static Bille bille;
     private static final int tailleCase = 30;
     private final int hauteur, largeur;
-    private JFrame frame;
+    protected JFrame frame;
     private Events events;
     private JLabel label;
     public static boolean tempb;
@@ -91,7 +91,8 @@ public class FenetreJeu extends JPanel {
                     g.setColor(Color.BLACK);
                 } else if (laCase instanceof End){
                     g.setColor(Color.GREEN);
-                }
+                } else if (laCase instanceof Freeze)
+                    g.setColor(new Color(0,0,182,155));
                 // Cases vides
                 else {
                     g.setColor(Color.GRAY);
@@ -161,11 +162,16 @@ public class FenetreJeu extends JPanel {
                         end.enter(bille);
                     }
 
+                }else if(s instanceof Freeze){
+                    Freeze freeze = (Freeze) s;
+                    if (freeze.touch(bille) && !tempb) {
+                        freeze.enter(bille);
+                    }
+
                 }
             }
 
         }
-
 
 
     }

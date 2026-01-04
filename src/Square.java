@@ -17,6 +17,7 @@ public abstract class Square {
 
     public abstract boolean isEmpty();
     public abstract void enter(Bille b);
+
     public abstract void leave(Bille b);
 
 
