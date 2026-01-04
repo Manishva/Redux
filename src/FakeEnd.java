@@ -1,6 +1,4 @@
-//---------------------CASE DE SORTIE--------------------------------//
-
-import javax.swing.*;
+//---------------------CASE DE FAUSSE SORTIE--------------------------------//
 
 public class FakeEnd extends Square{
 

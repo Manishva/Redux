@@ -1,3 +1,5 @@
+//---------------------FENETRE DU JEU--------------------------------//
+
 import javax.swing.*;
 import java.awt.*;
 

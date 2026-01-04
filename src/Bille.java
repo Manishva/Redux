@@ -1,3 +1,5 @@
+//---------------------CLASSE BILLE--------------------------------//
+
 import static java.lang.Math.sqrt;
 
 public class Bille {
@@ -26,7 +28,7 @@ public class Bille {
     }
 
     public double getRayon() {
-        return this.r;
+        return r;
     }
 
     public double getVx() {
@@ -53,8 +55,8 @@ public class Bille {
 
     // Calcul de la vitesse en fonction des frottements
     public void frottement(){
-        this.vx = this.vx * (1-(this.f/this.getV()));
-        this.vy = this.vy * (1-(this.f/this.getV()));
+        this.vx = this.vx * (1-(f/this.getV()));
+        this.vy = this.vy * (1-(f/this.getV()));
     }
 
 
@@ -62,6 +64,7 @@ public class Bille {
     public void setV(double vx, double vy) {
         this.v = sqrt(this.vx * this.vx + this.vy * this.vy);
     }
+
     // Déplacement de la Bille
     public void updateX(double vx) {
         this.x = this.x + vx;
@@ -78,9 +81,6 @@ public class Bille {
         if (getV() < maxSpeed){
             this.vx = this.vx + sx*a;
         }
-
-
-
     }
 
     public void updateVy(int sy) {
@@ -88,9 +88,6 @@ public class Bille {
         if (getV() < maxSpeed){
             this.vy = this.vy + sy*a;
         }
-
-
-
     }
 /*
     public void updateVy(int sy) {

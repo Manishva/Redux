@@ -1,11 +1,10 @@
+//---------------------MUR--------------------------------//
+
 public class Mur extends Square {
 
     public Mur(int y, int x) {
         super(y, x);
     }
-
-
-
 
     @Override
     public String toString() {

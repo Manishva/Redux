@@ -48,7 +48,8 @@ public class End extends Square{
             timer.setInitialDelay(0);
             timer.start();
             FenetreJeu.lvlid++;
-
+        }else {
+            System.exit(0);
         }
 
     }

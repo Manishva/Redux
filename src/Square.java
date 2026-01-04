@@ -1,3 +1,5 @@
+//---------------------CLASSE MODELISANT UNE CASE--------------------------------//
+
 public abstract class Square {
 
     private final int y, x;

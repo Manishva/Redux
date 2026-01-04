@@ -1,6 +1,5 @@
 //---------------------CASE RALENTISSANT--------------------------------//
 
-
 import javax.swing.*;
 
 public class Freeze extends Square {

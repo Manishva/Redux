@@ -1,3 +1,5 @@
+//---------------------CREATION DU TERRAIN--------------------------------//
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
@@ -45,8 +47,13 @@ public class Labyrinthe {
         return carte[l][c];
     }
 
-    public int getHauteur() { return this.hauteur;}
-    public int getLargeur() { return this.largeur;}
+    public int getHauteur() {
+        return this.hauteur;
+    }
+
+    public int getLargeur() {
+        return this.largeur;
+    }
 
     public void print() {
 
