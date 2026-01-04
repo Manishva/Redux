@@ -89,7 +89,7 @@ public class FenetreJeu extends JPanel {
                 if (laCase instanceof Mur) {
                     g.setColor(Color.BLACK);
                 } else if (laCase instanceof End){
-                    g.setColor(Color.ORANGE);
+                    g.setColor(Color.GREEN);
                 }
                 // Cases vides
                 else {
@@ -130,7 +130,7 @@ public class FenetreJeu extends JPanel {
 
 
         // Partie collision
-        // parcourir tout les blocks pour savoir où la collision a eu lieu
+        // On parcourt tous les blocs pour savoir où une collision a lieu
         for (int l = 0; l < hauteur; l++) {
             for (int c = 0; c < largeur; c++) {
 
@@ -142,10 +142,10 @@ public class FenetreJeu extends JPanel {
 //                    System.out.println("l"+l);        // Débogage
 //                    System.out.println("c"+c);        // Débogage
 
-                    if (mur.touch(bille) && !tempb) {
+                    if (mur.touch(bille) /*&& !tempb*/) {
 
                         mur.switchV(bille, tailleCase);
-                        tempb = true;
+                        //tempb = true;
 
 
                     }

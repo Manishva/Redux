@@ -1,9 +1,14 @@
+//---------------------CASE VIDE--------------------------------//
+
 public class CaseOrdinaire extends Square {
 
+
+    //Constructeur de la case
     public CaseOrdinaire(int lig, int col) {
         super(lig, col);
     }
 
+    // Concrétisation des méthodes abstraites
     @Override
     public String toString() {
         return "   ";

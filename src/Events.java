@@ -19,6 +19,7 @@ public class Events implements MouseMotionListener, MouseListener {
         this.sx = 0;
         this.tailleCase = tailleCase;
     }
+
     // Quand la souris est statique, la bille se rapproche d'elle quand meme
     public void MouseNothing() {
         if (this.lastMouseEvent != null) {
@@ -32,8 +33,8 @@ public class Events implements MouseMotionListener, MouseListener {
             int yPixel = (int) (((bille.getY() - bille.getRayon()) * this.tailleCase) + 45);
 //            System.out.println("xPixel : "+xPixel);
 //            System.out.println("yPixel : "+yPixel);
-            this.bille.calculateVx(sx - xPixel );
-            this.bille.calculateVy(sy - yPixel );
+            this.bille.updateVx(sx - xPixel );
+            this.bille.updateVy(sy - yPixel );
 //            System.out.println("dif 1 :" + (sx - xPixel));
 //            System.out.println("dif 2 :" + (sy - yPixel));
 //            System.out.println("bille : "+this.bille.getV());
@@ -46,25 +47,23 @@ public class Events implements MouseMotionListener, MouseListener {
     public void mouseDragged(MouseEvent e) {
 
     }
-//  récupérer les données de la souris pour les utiliser dans la méthode MouseNothing()
+
+    // On récupère les données de la souris pour les utiliser dans la méthode MouseNothing()
     @Override
     public void mouseMoved(MouseEvent e) {
 
         if (enjeu) {
-            // test pour centrer la bille dans la souris au repos
+            // On vérifie si la souris est à la dernière position ou non
             if (e != lastMouseEvent){
                 this.lastMouseEvent = e;
 //            }else{
 //
-//              System.out.println( this.sx + " " + this.sy );
+//              System.out.println( this.sx + " " + this.sy );  //Débogage
             }
-
-
-
-
         }
     }
-//  pour detacher la souris du jeu
+
+    //Permet d'activer/désactiver le suivi de la bille
     @Override
     public void mouseClicked(MouseEvent e) {
         if (enjeu) {

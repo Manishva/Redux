@@ -1,32 +1,22 @@
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-
-
 import static java.lang.Math.sqrt;
 
 public class Bille {
 
-    private double x, y;
-    private double vx, vy, v;
-    protected static final double r = 0.3;
-    private double f = 0.0005;
-    private double a = 0.00005;
-    private double maxSpeed = 2;
+    private double x, y;                            // Coordonnées x, y
+    private double vx, vy, v;                       // Normes des vecteurs vitesse
+    protected static final double r = 0.3;          // Rayon
+    private double f = 0.0005;                      // Coefficient de frottements
+    private double a = 0.00005;                     // Facteur d'accélération
+    private double maxSpeed = 3;                    // Seuil de vitesse
 
 
+    // Constructeur de la Bille
     public Bille(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public double getF() {
-        return f;
-    }
-    public void setF(double f) {
-        this.f = f;
-    }
-
+    // Getters
     public double getX() {
         return this.x;
     }
@@ -38,6 +28,19 @@ public class Bille {
     public double getRayon() {
         return this.r;
     }
+
+    public double getVx() {
+        return this.vx;
+    }
+
+    public double getVy() {
+        return this.vy;
+    }
+
+    public double getV() {
+        return sqrt(this.vx * this.vx + this.vy * this.vy);
+    }
+
     public void switchVX() {
         this.vx = -1*this.vx;
         //    System.out.println("vx: " + this.vx);
@@ -53,9 +56,13 @@ public class Bille {
         this.vx = this.vx * (1-(this.f/this.getV()));
         this.vy = this.vy * (1-(this.f/this.getV()));
     }
-    public double getVx() {
-        return this.vx;
+
+    // calcul la norme de la vitesse pour l'utiliser dans des calcul
+    public void setV(double vx, double vy) {
+        this.v = sqrt(this.vx * this.vx + this.vy * this.vy);
     }
+
+    // Déplacement de la Bille
     public void updateX(double vx){
         this.x = this.x + vx ;
     }
@@ -63,34 +70,18 @@ public class Bille {
         this.y = this.y + vy ;
     }
 
-    public double getVy() {
-        return this.vy;
-    }
 
-    public double getV() {
-        setV(vx, vy);
-        return this.v;
-    }
-
-    // Calcul de la vitesse en fonction de l'accélération (souris)
-    public double calculateVx(int sx) {
+    // Prends les écarts (sx, sy) entre la souris et la bille en paramètre et les ajoute à la vitesse après pondération des frottements
+    public void updateVx(int sx) {
 
         if (getV() < maxSpeed){
             this.vx = this.vx + sx*a;
         }
 
-        return this.vx;
-
     }
-    public double calculateVy(int sy) {
+    public void updateVy(int sy) {
         if (getV() < maxSpeed){
             this.vy = this.vy + sy*a;
         }
-
-        return this.vy;
-    }
-    // calcul la norme de la vitesse pour l'utiliser dans des calcul
-    public void setV(double vx, double vy) {
-        this.v = sqrt(vx * vx + vy * vy);
     }
 }

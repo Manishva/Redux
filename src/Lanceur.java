@@ -22,7 +22,5 @@ public class Lanceur {
         frame.setVisible(true);
 
 
-
-
     }
 }

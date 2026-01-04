@@ -1,7 +1,14 @@
+//---------------------CASE DE SORTIE--------------------------------//
+
 public class End extends Square{
+
+
+    // Constructeur de la case
     public End(int l,int c){
         super(l,c);
     }
+
+    // Concrétisation des méthodes abstraites
     @Override
     public boolean isEmpty() {
         return false;
