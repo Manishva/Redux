@@ -4,8 +4,6 @@ import javax.swing.*;
 
 public class End extends Square{
 
-    int lvlid = 1;
-
     // Constructeur de la case
     public End(int l,int c){
         super(l,c);
@@ -20,7 +18,7 @@ public class End extends Square{
     @Override
     public void enter(Bille b) {
         System.out.println(FenetreJeu.minute +" :" + FenetreJeu.second+ "." + FenetreJeu.chrono);
-        if (lvlid==1){
+        if (FenetreJeu.lvlid==2){
 
             PlayButton.jeu = new Jeu("lab2.txt");
             PlayButton.graphic.frame.setVisible(false);
@@ -34,8 +32,8 @@ public class End extends Square{
             });
             timer.setInitialDelay(0);
             timer.start();
-            lvlid++;
-        } else if (lvlid==2) {
+            FenetreJeu.lvlid++;
+        } else if (FenetreJeu.lvlid==3) {
 
             Jeu jeu = new Jeu("lab3.txt");
             PlayButton.graphic.frame.setVisible(false);
@@ -49,7 +47,7 @@ public class End extends Square{
             });
             timer.setInitialDelay(0);
             timer.start();
-            lvlid++;
+            FenetreJeu.lvlid++;
 
         }
 

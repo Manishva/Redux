@@ -28,6 +28,7 @@ public class Labyrinthe {
                         case ' ': cc = new CaseOrdinaire(l, c); break;
                         case 'e': cc= new End(l,c); break;
                         case 'f': cc= new Freeze(l,c); break;
+                        case 'w': cc= new FakeEnd(l,c); break;
                         default: cc = new CaseOrdinaire(l,c); break;
                     }
                     carte[l][c] = cc;

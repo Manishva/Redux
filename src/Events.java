@@ -29,7 +29,7 @@ public class Events implements MouseMotionListener, MouseListener {
             this.sy = lastMouseEvent.getY();
 //            System.out.println("BIP : "+this.sx + " " + this.sy);
 
-            int xPixel = (int) (((bille.getX() - bille.getRayon()) * this.tailleCase) + 25);
+            int xPixel = (int) (((bille.getX() - bille.getRayon()) * this.tailleCase) + 45);
             int yPixel = (int) (((bille.getY() - bille.getRayon()) * this.tailleCase) + 45);
 //            System.out.println("xPixel : "+xPixel);
 //            System.out.println("yPixel : "+yPixel);

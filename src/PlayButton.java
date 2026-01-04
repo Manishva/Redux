@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 public class PlayButton extends JPanel implements ActionListener {
     public static int tempo = 10;
     public JButton playButton;
+    public static Jeu jeu;
+    public static FenetreJeu graphic;
 
     public PlayButton() {
         playButton = new JButton("Play");
@@ -18,8 +20,9 @@ public class PlayButton extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         Lanceur.frame.setVisible(false);
-        Jeu jeu = new Jeu("lab.txt");
-        FenetreJeu graphic = new FenetreJeu(jeu.labyrinthe, jeu.getBille());
+        jeu = new Jeu("lab.txt");
+        graphic = new FenetreJeu(jeu.labyrinthe, jeu.getBille());
+
 
         Timer timer = new Timer(tempo, ev -> {
 

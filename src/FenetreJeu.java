@@ -13,6 +13,7 @@ public class FenetreJeu extends JPanel {
     public static long chrono;
     static int second;
     static int minute;
+    protected static int lvlid = 2;
 
 
     public FenetreJeu(Labyrinthe l, Bille bille) {
@@ -41,7 +42,7 @@ public class FenetreJeu extends JPanel {
         this.label = new JLabel("Redux");
         frame.getContentPane().add(label, BorderLayout.SOUTH);
         label.setText(String.valueOf(chrono));
-        label.setFont(new Font("Arial", Font.BOLD, 30));
+        label.setFont(new Font("Arial", Font.BOLD, 21));
 
 
 
@@ -91,7 +92,9 @@ public class FenetreJeu extends JPanel {
                     g.setColor(Color.BLACK);
                 } else if (laCase instanceof End){
                     g.setColor(Color.GREEN);
-                } else if (laCase instanceof Freeze)
+                }else if(laCase instanceof FakeEnd){
+                    g.setColor(Color.GREEN);
+                }else if (laCase instanceof Freeze)
                     g.setColor(new Color(0,0,182,155));
                 // Cases vides
                 else {
