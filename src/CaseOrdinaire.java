@@ -2,7 +2,6 @@
 
 public class CaseOrdinaire extends Square {
 
-
     //Constructeur de la case
     public CaseOrdinaire(int lig, int col) {
         super(lig, col);

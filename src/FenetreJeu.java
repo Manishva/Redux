@@ -171,8 +171,9 @@ public class FenetreJeu extends JPanel {
                     Freeze freeze = (Freeze) s;
                     if (freeze.touch(bille) && !tempb) {
                         freeze.enter(bille);
+                    }else{
+                        freeze.leave(bille);
                     }
-
                 }
             }
 
