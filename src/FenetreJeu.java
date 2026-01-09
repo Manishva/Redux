@@ -173,6 +173,7 @@ public class FenetreJeu extends JPanel {
                         freeze.enter(bille);
                     }else{
                         freeze.leave(bille);
+
                     }
                 }
             }
