@@ -15,14 +15,13 @@ public class Lanceur {
         frame.setLayout(null);
         frame.pack();
         frame.setLocationRelativeTo(null);
-        playButton.setBounds(80,80, 100, 40);
+        playButton.setBounds(0,110, 582, 301);
         imagePanel.setBounds(0,0,582, 301);
         frame.setSize(582, 333);
-        frame.setResizable(true);
+        frame.setLocation(700,350);
+        frame.setResizable(false);
         frame.add(imagePanel);
         frame.add(playButton);
         frame.setVisible(true);
-
-
     }
 }

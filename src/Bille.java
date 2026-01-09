@@ -9,7 +9,7 @@ public class Bille {
     protected static final double r = 0.3;
     protected static double f = 0.0005;
     private double a = 0.00005;
-    private double maxSpeed = 2;
+    private double maxSpeed = 0.25;
 
 
     // Constructeur de la Bille

@@ -37,10 +37,13 @@ public class FenetreJeu extends JPanel {
         frame.addMouseMotionListener(events);
         frame.addMouseListener(events);
 
+        frame.setLocation(500,200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(this);
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(false);
+
         this.label = new JLabel("Redux");
         frame.getContentPane().add(label, BorderLayout.SOUTH);
         label.setText(String.valueOf(chrono));
